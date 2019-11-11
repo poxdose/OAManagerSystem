@@ -1,5 +1,9 @@
 package com.qf.mapper;
 
+import com.qf.pojo.Zhoubao;
+
+import java.util.List;
+
 public interface StudentMapper {
 
     //学生修改密码
@@ -10,6 +14,6 @@ public interface StudentMapper {
 
     public int DeleteWeekPaper(String title);
 
-  //  public List<Zhoubao> SelectWeekPaper();
+    public List<Zhoubao> SelectWeekPaper();
 
 }
