@@ -1,6 +1,7 @@
 package com.qf.pojo;
 
-public class Teacher {
+public class
+Teacher {
     private int tid;
     private String tname;
 
@@ -15,6 +16,7 @@ public class Teacher {
     public int getTid() {
         return tid;
     }
+
 
     public void setTid(int tid) {
         this.tid = tid;
