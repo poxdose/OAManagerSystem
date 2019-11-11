@@ -6,6 +6,7 @@ public class Class {
     private int kid;
     private int tid;
 
+
     public Class(int cid, String cname, int kid, int tid) {
         this.cid = cid;
         this.cname = cname;

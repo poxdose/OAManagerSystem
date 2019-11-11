@@ -34,6 +34,7 @@ public class Zhoubao {
 
     public int getZid() {
         return zid;
+
     }
 
     public void setZid(int zid) {
