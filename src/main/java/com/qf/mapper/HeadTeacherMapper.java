@@ -6,9 +6,9 @@ import com.qf.pojo.Student;
 
 import java.util.List;
 
-public interface TeacherMapper {
+public interface HeadTeacherMapper {
 
-    //老师修改密码
+    //班主任修改密码
     public int TeacherUpdateUpwd(String uname);
 
 
@@ -30,6 +30,4 @@ public interface TeacherMapper {
 
     //个人请假
     public int AddHoliday(Holiday holiday);
-
-
 }
