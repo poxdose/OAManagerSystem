@@ -4,6 +4,9 @@ public class
 Teacher {
     private int tid;
     private String tname;
+    private int tage;
+    private String tsex;
+    private int roel_id;
 
     public Teacher(int tid, String tname) {
         this.tid = tid;
