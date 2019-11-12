@@ -92,7 +92,12 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Class> selectClass() {
+    public List<User> selectTeacherByTeachername(String tname) {
+        return adminMapper.selectTeacherByTeachername(tname);
+    }
+
+    @Override
+    public List<Clazz> selectClass() {
         return adminMapper.selectClass();
     }
 
