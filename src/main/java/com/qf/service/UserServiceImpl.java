@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
         return userMapper.getRoleByUname(uname);
     }
 
-    @Override
+    /*@Override
     public String getsalt(String username) {
         return userMapper.getsalt(username);
-    }
+    }*/
 }

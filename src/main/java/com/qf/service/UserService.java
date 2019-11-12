@@ -5,5 +5,5 @@ public interface UserService {
     public String getUpwdByUname(String uname);
 
     public String getRoleByUname(String uname);
-    public  String getsalt(String username);
+   // public  String getsalt(String username);
 }

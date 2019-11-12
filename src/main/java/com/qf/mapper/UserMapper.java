@@ -6,6 +6,6 @@ public interface UserMapper {
 
     public String getRoleByUname(String uname);
 
-    public  String getsalt(String username);
+    //public  String getsalt(String username);
 
 }
