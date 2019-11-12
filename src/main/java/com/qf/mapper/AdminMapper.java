@@ -25,9 +25,10 @@ public interface AdminMapper {
     public List<Teacher> selectTeacher();
 
     public int updateTeacher(Teacher teacher);
-
+    //根据员工名模糊查询员工
+    public List<User> selectTeacherByTeachername(String tname);
     //班级管理
-    public List<Class> selectClass();
+    public List<Clazz> selectClass();
 
     public int addClass(Clazz clazz);
 

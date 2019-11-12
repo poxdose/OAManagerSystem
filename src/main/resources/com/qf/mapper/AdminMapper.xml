@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.AdminMapper">
+    <!-- namespace表示相对路径下接口的地址，insert id表示方法名，parametertype表示参数的类型-->
+    <!--获取所有课程-->
+    <select id="selectKecheng" resultType="kecheng">
+    select * from kehceng
+</select>
+    <!--添加课程-->
+    <insert id="addKecheng" parameterType="kecheng">
+ insert into kecheng(kid,kname) values(#{kid},#{kname})
+</insert>
+    <!--删除课程-->
+    <delete id="deleteKecheng" parameterType="int">
+        delete from kecheng where kid=#{kid}
+    </delete>
+    <!--   修改课程-->
+    <update id="updateKecheng" parameterType="int">
+    update kecheng set kname=#{kname} where kid=#{kid}
+    </update>
+
+
+    <!--  roleeeeeeeeeeeeee  -->
+    <!--获取所有角色-->
+    <select id="selectRole" resultType="role">
+    select  * from role
+    </select>
+    <!--增加角色-->
+    <insert id="addRole" parameterType="role">
+    insert into role(roles) values(#{roles})
+    </insert>
+    <!--    删除角色-->
+    <delete id="deleteRole" parameterType="int">
+        delete from role where role_id=#{role}
+    </delete>
+    <!--   修改课程-->
+    <update id="updateRole" parameterType="int">
+    update role set roles=#{roles} where role_id=#{role}
+    </update>
+
+    <!--userrrrrrrrrrrrrrrrr-->
+    <!--获取所有用户-->
+    <select id="selectUser" resultType="user">
+    select  * from `user`
+    </select>
+    <!--增加角色由teacher完成-->
+    <!--    删除用户-->
+    <delete id="deleteUser" parameterType="int">
+        delete from `user` where uid=#{uid}
+    </delete>
+    <!--   根据用户名修改用户，只能重置密码为123456-->
+    <update id="updateUser" parameterType="int">
+    update `user` set upwd=123456 where uname=#{uname}
+    </update>
+    <!--    查询用户，模糊搜索-->
+    <select id="selectUserByUsername" resultType="user">
+        select * from `user`
+        <where>
+            <if test="uname!=null">uname LIKE "%"#{uname}"%"</if>
+        </where>
+    </select>
+
+
+    <!--员工管理 员工信息管理 含搜索功能 -->
+    <!--获取所有员工/教师-->
+    <select id="selectTeacher" resultType="teacher">
+    select  * from teacher
+    </select>
+    <!--  根据员工名字更改员工信息  -->
+    <update id="updateTeacher" parameterType="teacher">
+    update teacher set tname=#{tname},tage=#{tage},tsex=#{tsex},role_id=#{role_id} where tname=#{tname}
+    </update>
+
+    <!--    查询员工，模糊搜索-->
+    <select id="selectTeacherByTeachername" resultType="teacher">
+        select * from `teacher`
+        <where>
+            <if test="tname!=null">uname LIKE "%"#{tname}"%"</if>
+        </where>
+    </select>
+
+<!--班级管理-->
+    <select id="selectClass" resultType="clazz">
+    select  * from `class`
+    </select>
+    <!--增加-->
+    <insert id="addClass" parameterType="clazz">
+    insert into `class`(cname,kid,tid) values(#{cname},#{kid},#{tid})
+    </insert>
+    <!--    删除-->
+    <delete id="deleteClass" parameterType="int">
+        delete from `class` where cid=#{cid}
+    </delete>
+    <!--   修改-->
+    <update id="updateClass" parameterType="int">
+    update `class` set cname=#{cname},kid=#{kid},tid=#{tid} where cid=#{cid}
+    </update>
+</mapper>
