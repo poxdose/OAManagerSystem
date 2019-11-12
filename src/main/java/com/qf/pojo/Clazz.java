@@ -1,20 +1,20 @@
 package com.qf.pojo;
 
-public class Class {
+public class Clazz {
     private int cid;
     private String cname;
     private int kid;
     private int tid;
 
 
-    public Class(int cid, String cname, int kid, int tid) {
+    public Clazz(int cid, String cname, int kid, int tid) {
         this.cid = cid;
         this.cname = cname;
         this.kid = kid;
         this.tid = tid;
     }
 
-    public Class() {
+    public Clazz() {
     }
 
     public int getCid() {
