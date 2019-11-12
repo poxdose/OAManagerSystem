@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--用户管理-->
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
   <head>
     <meta charset="utf-8">
@@ -80,28 +81,58 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
-              <li class="sidebar-list-item"><a href="charts.html" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
-              <li class="sidebar-list-item"><a href="tables.html" class="sidebar-link text-muted active"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
-              <li class="sidebar-list-item"><a href="forms.html" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>Forms</span></a></li>
-          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Pages</span></a>
-            <div id="pages" class="collapse">
+          <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>个人资料管理</span></a></li>
+          <li class="sidebar-list-item"><a href="charts.html"data-toggle="collapse" data-target="#pages2" aria-expanded="false" aria-controls="pages2" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>周报管理</span></a>
+            <div id="pages2" class="collapse">
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page one</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page two</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page three</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page four</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
-              <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+          <li class="sidebar-list-item"><a href="tables.html" data-toggle="collapse" data-target="#pages1" aria-expanded="false" aria-controls="pages1" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>请假</span></a>
+            <div id="pages1" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">申请</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-list-item"><a href="forms.html" data-toggle="collapse" data-target="#pages3" aria-expanded="false" aria-controls="pages3" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>成绩管理</span></a>
+            <div id="pages3" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩查看</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩录入</a></li>
+
+              </ul>
+            </div>
+
+          </li>
+          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>超级管理员</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">课程管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">角色管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">用户管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">班级管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">员工管理</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
         </ul>
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages4" aria-expanded="false" aria-controls="pages4"class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>学生信息管理</span></a>
+            <div id="pages4" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看个人信息</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填入学生信息</a></li>
+
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="page-holder w-100 d-flex flex-wrap">
@@ -111,7 +142,7 @@
               <div class="col-lg-6 mb-4">
                 <div class="card">
                   <div class="card-header">
-                    <h6 class="text-uppercase mb-0">Basic Table</h6>
+                    <h6 class="text-uppercase mb-0">用户管理</h6>
                   </div>
                   <div class="card-body">
                     <table class="table card-text">
@@ -138,147 +169,6 @@
                         </tr>
                         <tr>
                           <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card">
-                  <div class="card-header">
-                    <h6 class="text-uppercase mb-0">Striped Table</h6>
-                  </div>
-                  <div class="card-body">                           
-                    <table class="table table-striped card-text">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter                            </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6 mb-4">
-                <div class="card">
-                  <div class="card-header">
-                    <h6 class="text-uppercase mb-0">Striped table with hover effect</h6>
-                  </div>
-                  <div class="card-body">                           
-                    <table class="table table-striped table-hover card-text">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter                            </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Sam</td>
-                          <td>Nevoresky</td>
-                          <td>@facebook                            </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h6 class="text-uppercase mb-0">Compact Table</h6>
-                  </div>
-                  <div class="card-body">                          
-                    <table class="table table-striped table-sm card-text">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter      </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">6</th>
                           <td>Larry</td>
                           <td>the Bird</td>
                           <td>@twitter</td>

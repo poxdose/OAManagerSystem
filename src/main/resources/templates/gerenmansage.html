@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--个人信息管理修改密码-->
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
   <head>
     <meta charset="utf-8">
@@ -80,162 +81,89 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>Home</span></a></li>
-              <li class="sidebar-list-item"><a href="charts.html" class="sidebar-link text-muted active"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li>
-              <li class="sidebar-list-item"><a href="tables.html" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Tables</span></a></li>
-              <li class="sidebar-list-item"><a href="forms.html" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>Forms</span></a></li>
-          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Pages</span></a>
-            <div id="pages" class="collapse">
+          <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>个人资料管理</span></a></li>
+          <li class="sidebar-list-item"><a href="charts.html"data-toggle="collapse" data-target="#pages2" aria-expanded="false" aria-controls="pages2" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>周报管理</span></a>
+            <div id="pages2" class="collapse">
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page one</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page two</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page three</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Page four</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
-              <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+          <li class="sidebar-list-item"><a href="tables.html" data-toggle="collapse" data-target="#pages1" aria-expanded="false" aria-controls="pages1" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>请假</span></a>
+            <div id="pages1" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">申请</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-list-item"><a href="forms.html" data-toggle="collapse" data-target="#pages3" aria-expanded="false" aria-controls="pages3" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>成绩管理</span></a>
+            <div id="pages3" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩查看</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩录入</a></li>
+
+              </ul>
+            </div>
+
+          </li>
+          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>超级管理员</span></a>
+            <div id="pages" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">课程管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">角色管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">用户管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">班级管理</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">员工管理</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
         </ul>
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
         <ul class="sidebar-menu list-unstyled">
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-              <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages4" aria-expanded="false" aria-controls="pages4"class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>学生信息管理</span></a>
+            <div id="pages4" class="collapse">
+              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看个人信息</a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填入学生信息</a></li>
+
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="page-holder w-100 d-flex flex-wrap">
         <div class="container-fluid px-xl-5">
           <section class="py-5">
-            <div class="row mb-4">
-              <div class="col-lg-8 mb-4 mb-lg-0">
+            <div class="row">
+              <!-- Basic Form-->
+              <div class="col-lg-6 mb-5">
                 <div class="card">
                   <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Line chart Example</h2>
+                    <h3 class="h6 text-uppercase mb-0">修改密码</h3>
                   </div>
                   <div class="card-body">
-                    <p class="mb-5 text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                    <div class="chart-holder mt-5 mb-5">
-                      <canvas id="lineChartExample"></canvas>
-                    </div>
+                    <p>个人信息管理</p>
+                    <form>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">用户名</label>
+                        <input type="text" placeholder="username" class="form-control">
+                      </div>
+                      <div class="form-group">       
+                        <label class="form-control-label text-uppercase">密码</label>
+                        <input type="password" placeholder="Password" class="form-control">
+                      </div>
+                      <div class="form-group">       
+                        <button type="submit" class="btn btn-primary">修改</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Line chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-holder">
-                      <canvas id="lineCahrtsm1"></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="card mb-3">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Bar chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-holder">
-                      <canvas id="barChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-4">
-              <div class="col-lg-4">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Pie chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-holder">
-                      <canvas id="pieChart1"></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Pie chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-holder">
-                      <canvas id="pieChart2"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-8">
-                <div class="card">
-                  <div class="card-header">
-                    <h2 class="h6 mb-0 text-uppercase">Bar chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-5 text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                    <div class="chart-holder mt-5 mb-5">
-                      <canvas id="barChartExample1"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Doughnut chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-3 text-gray">Lorem ipsum dolor sit amet.</p>
-                    <div class="chart-holder">
-                      <canvas id="doughnutChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Pie chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-3 text-gray">Lorem ipsum dolor sit amet.</p>
-                    <div class="chart-holder">
-                      <canvas id="pieChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Polar chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-3 text-gray">Lorem ipsum dolor sit amet.</p>
-                    <div class="chart-holder">
-                      <canvas id="polarChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <h2 class="h6 text-uppercase mb-0">Radar chart Example</h2>
-                  </div>
-                  <div class="card-body">
-                    <p class="mb-3 text-gray">Lorem ipsum dolor sit amet.</p>
-                    <div class="chart-holder">
-                      <canvas id="radarChartExample"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </section>
         </div>
@@ -261,7 +189,6 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="js/js.cookie.min.js"></script>
-    <script src="js/charts-custom.js"></script>
     <script src="js/front.js"></script>
   </body>
 </html>

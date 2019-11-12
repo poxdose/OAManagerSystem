@@ -2,23 +2,11 @@ package com.qf.pojo;
 
 public class Score {
     private int scid;
-    private int sid;
-    private int cid;
-    private int kid;
+    private Student student;
+    private Class aclass;
+    private Kecheng kecheng;
     private String jieduan;
     private int score;
-
-    public Score(int scid, int sid, int cid, int kid, String jieduan, int score) {
-        this.scid = scid;
-        this.sid = sid;
-        this.cid = cid;
-        this.kid = kid;
-        this.jieduan = jieduan;
-        this.score = score;
-    }
-
-    public Score() {
-    }
 
     public int getScid() {
         return scid;
@@ -28,28 +16,28 @@ public class Score {
         this.scid = scid;
     }
 
-    public int getSid() {
-        return sid;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setSid(int sid) {
-        this.sid = sid;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public int getCid() {
-        return cid;
+    public Class getAclass() {
+        return aclass;
     }
 
-    public void setCid(int cid) {
-        this.cid = cid;
+    public void setAclass(Class aclass) {
+        this.aclass = aclass;
     }
 
-    public int getKid() {
-        return kid;
+    public Kecheng getKecheng() {
+        return kecheng;
     }
 
-    public void setKid(int kid) {
-        this.kid = kid;
+    public void setKecheng(Kecheng kecheng) {
+        this.kecheng = kecheng;
     }
 
     public String getJieduan() {
@@ -68,13 +56,33 @@ public class Score {
         this.score = score;
     }
 
+    public Score(int scid, Student student, Class aclass, Kecheng kecheng, String jieduan, int score) {
+        this.scid = scid;
+        this.student = student;
+        this.aclass = aclass;
+        this.kecheng = kecheng;
+        this.jieduan = jieduan;
+        this.score = score;
+    }
+
+    public Score() {
+    }
+
+    public Score(Student student, Class aclass, Kecheng kecheng, String jieduan, int score) {
+        this.student = student;
+        this.aclass = aclass;
+        this.kecheng = kecheng;
+        this.jieduan = jieduan;
+        this.score = score;
+    }
+
     @Override
     public String toString() {
         return "Score{" +
                 "scid=" + scid +
-                ", sid=" + sid +
-                ", cid=" + cid +
-                ", kid=" + kid +
+                ", student=" + student +
+                ", aclass=" + aclass +
+                ", kecheng=" + kecheng +
                 ", jieduan='" + jieduan + '\'' +
                 ", score=" + score +
                 '}';
