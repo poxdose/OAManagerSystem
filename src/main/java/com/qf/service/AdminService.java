@@ -1,10 +1,10 @@
-package com.qf.mapper;
+package com.qf.service;
 
 import com.qf.pojo.*;
 
 import java.util.List;
 
-public interface AdminMapper {
+public interface AdminService {
     //课程管理
     public List<Kecheng> selectKecheng();
     public int addKecheng(Kecheng kecheng);
@@ -34,5 +34,6 @@ public interface AdminMapper {
     public int updateClass(Clazz clazz);
 
     public int deleteClass(int cid);
+
 
 }
