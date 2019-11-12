@@ -79,11 +79,11 @@ private UserServiceImpl userServiceImpl;
 
     @RequestMapping("edit1")
     public String edit(String upwd1, HttpServletRequest request, HttpSession session){
-        System.out.println(upwd1);
+
         String uname = (String) session.getAttribute("uname");
-        System.out.println(uname);
+
         String upwd = userServiceImpl.getMD5String(upwd1);
-        System.out.println(upwd);
+
         int i = userServiceImpl.editupwd(upwd,uname);
         return "indexsim";
     }
