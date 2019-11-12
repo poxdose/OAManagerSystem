@@ -5,12 +5,15 @@ import com.qf.pojo.User;
 import com.qf.service.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.apache.shiro.mgt.SecurityManager;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -57,12 +60,32 @@ private UserServiceImpl userServiceImpl;
                 //User user = userServiceImpl.getuser(uname);
                 //session.setAttribute("user",user);
                 session.setAttribute("uname",uname);
-                return "index";
+                return "indexsim";
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         return "redirect:loginPage";
+    }
+
+
+    @RequestMapping("edit")
+    public String edit(){
+
+
+
+        return "editupwd";
+    }
+
+    @RequestMapping("edit1")
+    public String edit(String upwd1, HttpServletRequest request, HttpSession session){
+        System.out.println(upwd1);
+        String uname = (String) session.getAttribute("uname");
+        System.out.println(uname);
+        String upwd = userServiceImpl.getMD5String(upwd1);
+        System.out.println(upwd);
+        int i = userServiceImpl.editupwd(upwd,uname);
+        return "indexsim";
     }
 
 

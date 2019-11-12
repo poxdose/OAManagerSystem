@@ -36,4 +36,6 @@ public interface AdminMapper {
 
     public int deleteClass(int cid);
 
+
+
 }

@@ -12,6 +12,10 @@
     </select>
 
 
+    <update id="editupwd" parameterType="java.lang.String">
+         update user set upwd =#{upwd} where uname = #{uname}
+    </update>
+
 
     <!--<select id="getUserByUid" parameterType="int" resultType="user">
         select * from user where uid=#{uid}
