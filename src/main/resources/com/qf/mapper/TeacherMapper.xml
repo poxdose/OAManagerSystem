@@ -26,7 +26,7 @@
         <association property="student" resultMap="selectstudent"></association>
     </resultMap>
     <select id="selectscore" resultMap="score">
-select student.sname,jieduan,score FROM score,class,kecheng,teacher,student WHERE score.cid=class.cid AND class.kid = kecheng.kid and score.sid = student.sid AND class.tid = teacher.tid   AND tname = #{tname}
+select student.sname,kname,jieduan,score FROM score,class,kecheng,teacher,student WHERE score.cid=class.cid AND class.kid = kecheng.kid and score.sid = student.sid AND class.tid = teacher.tid   AND tname = #{tname}
 </select>
 
     <update id="updatescore">
