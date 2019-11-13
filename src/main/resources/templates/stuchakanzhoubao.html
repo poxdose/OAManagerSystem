@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<!--学生填写周报-->
+<<<<<<< Updated upstream
+<!--
+查看周报
+-->
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
   <head>
     <meta charset="utf-8">
@@ -87,7 +90,7 @@
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+                <li class="sidebar-list-item"><a th:href="@{student}" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
@@ -143,26 +146,33 @@
               <div class="col-lg-6 mb-5">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="h6 text-uppercase mb-0">填写周报</h3>
+                    <h3 class="h6 text-uppercase mb-0">查看周报</h3>
                   </div>
                   <div class="card-body">
                     <p>周报</p>
-                    <form action="stuaddzhoubao" method="post">
+                    <form>
+                      <!--<tr th:each="zhoubao,var:${zhoubaoList}">-->
+                        <div class="form-group">
+                          <label class="form-control-label text-uppercase">学生名字</label>
+                          <td th:text="${uname}"></td>
+                        </div>
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">标题</label>
-                        <input type="text" name="zbiaoti" class="form-control">
+                        <td th:text="${zhoubao.zbiaoti}"></td>
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label text-uppercase">日期</label>
-                        <input type="date" name="zdate" class="form-control">
+                        <td th:text="${zhoubao.zdate}"></td>
                       </div>
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">内容</label>
-                        <input type="fail" name="text" class="form-control">
+                        <td th:text="${zhoubao.text}"></td>
                       </div>
-                      <div class="form-group">       
-                        <button type="submit" class="btn btn-primary">提交</button>
-                      </div>
+                        <div class="form-group">
+                          <label class="form-control-label text-uppercase">分数</label>
+                          <td th:text="${zhoubao.score}"></td>
+                        </div>
+                      <!--</tr>-->
                     </form>
                   </div>
                 </div>
@@ -195,4 +205,5 @@
     <script src="js/js.cookie.min.js"></script>
     <script src="js/front.js"></script>
   </body>
+
 </html>
