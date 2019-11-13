@@ -23,7 +23,7 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
         Map<String,String> map = new HashMap<String,String>();
         map.put("/loginPage","anon");
-        map.put("/login","anon");
+        map.put("/login1","anon");
         map.put("/**","authc");
         //map.put("/addUser","roles[role1]");
 
