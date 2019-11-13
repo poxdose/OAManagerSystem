@@ -1,6 +1,5 @@
 package com.qf.shiro;
 
-
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -24,8 +23,8 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setUnauthorizedUrl("/unauth");
         Map<String,String> map = new HashMap<String,String>();
         map.put("/loginPage","anon");
-        map.put("/login","anon");
-       // map.put("/**","authc");
+        map.put("/login1","anon");
+        map.put("/**","authc");
         //map.put("/addUser","roles[role1]");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
@@ -46,7 +45,7 @@ public class ShiroConfiguration {
     }
 
     @Bean("shiroDialect")
-    public ShiroDialect getShiroDialect() {
+    public ShiroDialect getShiroDialect(){
         return new ShiroDialect();
     }
 
