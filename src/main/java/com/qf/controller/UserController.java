@@ -40,7 +40,7 @@ private UserServiceImpl userServiceImpl;
 
     @RequestMapping("loginPage")
     public String loginPage(){
-        return "loginsim";
+        return "login";
     }
 
 

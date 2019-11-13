@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" th:href="@{vendor/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Google fonts - Popppins for copy-->
@@ -87,7 +87,7 @@
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+                <li class="sidebar-list-item"><a th:href="@{student}" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
@@ -149,8 +149,8 @@
                     <p>个人信息管理</p>
                     <form action="/edit1" method="post" >
                       <div class="form-group">
-                        <label class="form-control-label text-uppercase">用户名</label>
-                        <input type="text" placeholder="username" class="form-control">
+                        <label class="form-control-label text-uppercase" >用户名</label>
+                        <input type="text" placeholder="username" class="form-control" name="uname">
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label text-uppercase">密码</label>

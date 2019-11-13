@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.mapper.HeadTeacherMapper">
+<!--    班主任修改密码-->
+    <update id="TeacherUpdateUpwd" parameterType="java.lang.String">
+        update user set upwd=#{upwd} where uname=#{uname}
+    </update>
+<!--    查看周报-->
+    <resultMap id="selectstudent" type="com.qf.pojo.Student">
+        <id property="sid" column="sid"></id>
+        <result property="sname" column="sname"></result>
+    </resultMap>
+    <resultMap id="zhoubao" type="com.qf.pojo.ZhoubaoTeacher">
+        <id property="zid" column="zid"></id>
+        <result property="zbiaoti" column="zbiaoti"></result>
+        <result property="datetime" column="zdate"></result>
+        <result property="text" column="text"></result>
+        <result property="score" column="score"></result>
+        <association property="student" resultMap="selectstudent"></association>
+    </resultMap>
+    <select id="WeekPaperPoint" resultMap="zhoubao">
+   SELECT zhoubao.sid ,student.sname ,zbiaoti,zdate,text,score FROM student,zhoubao,class,teacher WHERE zhoubao.sid = student.sid AND student.cid = class.cid and class.tid = teacher.tid
+    </select>
+<!--    学生信息管理:增/删/改/查-->
+    <insert id="saveStudent" parameterType="com.qf.pojo.Student">
+        insert into student(sname,ssex,sage) values (#{sname},#{ssex},#{sage})
+    </insert>
+    <delete id="deleteStudent" parameterType="int">
+        delete from student where sid=#{sid}
+    </delete>
+    <update id="updateStudent" parameterType="com.qf.pojo.Student">
+        update student set sname=#{sname},upwd=#{upwd},sage=#{sage} where sid=#{sid}
+    </update>
+    <select id="getUserList" resultType="com.qf.pojo.Student">
+        select * from student
+    </select>
+    <select id="getStudentBySid" parameterType="int" resultType="com.qf.pojo.Student">
+        select * from student where sid=#{sid}
+    </select>
+</mapper>
