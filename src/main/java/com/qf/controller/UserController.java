@@ -40,7 +40,7 @@ private UserServiceImpl userServiceImpl;
 
     @RequestMapping("loginPage")
     public String loginPage(){
-        return "loginsim";
+        return "login";
     }
 
 
@@ -60,7 +60,7 @@ private UserServiceImpl userServiceImpl;
                 //User user = userServiceImpl.getuser(uname);
                 //session.setAttribute("user",user);
                 session.setAttribute("uname",uname);
-                return "indexsim";
+                return "gerenmansage";
             }
         }catch (Exception e){
             e.printStackTrace();
