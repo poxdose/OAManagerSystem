@@ -42,6 +42,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public Kecheng getKechengByKid(int kid) {
+        return adminMapper.getKechengByKid(kid);
+    }
+
+    @Override
     public List<Role> selectRole() {
         return adminMapper.selectRole();
     }
@@ -62,6 +67,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public Role getRoleByRoleid(int roleid) {
+        return adminMapper.getRoleByRoleid(roleid);
+    }
+
+    @Override
     public List<User> selectUser() {
         return adminMapper.selectUser();
     }
@@ -75,6 +85,12 @@ public class AdminServiceImpl implements AdminService {
     public int updatepassword(User user) {
         return adminMapper.updatepassword(user);
     }
+
+    @Override
+    public User getUserByUid(int uid) {
+        return adminMapper.getUserByUid(uid);
+    }
+
     //模糊查询获得结果集
     @Override
     public List<User> selectUserByUsername(String uname) {
@@ -92,8 +108,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<User> selectTeacherByTeachername(String tname) {
+    public List<Teacher> selectTeacherByTeachername(String tname) {
         return adminMapper.selectTeacherByTeachername(tname);
+    }
+
+    @Override
+    public Teacher getTeacherByTid(int tid) {
+        return adminMapper.getTeacherByTid(tid);
     }
 
     @Override
@@ -114,5 +135,10 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int deleteClass(int cid) {
         return adminMapper.deleteClass(cid);
+    }
+
+    @Override
+    public Clazz getClassByCid(int cid) {
+        return adminMapper.getClassByCid(cid);
     }
 }
