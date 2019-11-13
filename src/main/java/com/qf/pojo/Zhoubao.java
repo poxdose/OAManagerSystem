@@ -4,15 +4,15 @@ public class Zhoubao {
     private int zid;
     private int sid;
     private String zbiaoti;
-    private String datetime;
+    private String zdate;
     private String text;
     private int score;
 
-    public Zhoubao(int zid, int sid, String zbiaoti, String datetime, String text, int score) {
+    public Zhoubao(int zid, int sid, String zbiaoti, String zdate, String text, int score) {
         this.zid = zid;
         this.sid = sid;
         this.zbiaoti = zbiaoti;
-        this.datetime = datetime;
+        this.zdate = zdate;
         this.text = text;
         this.score = score;
     }
@@ -20,21 +20,8 @@ public class Zhoubao {
     public Zhoubao() {
     }
 
-    @Override
-    public String toString() {
-        return "Zhoubao{" +
-                "zid=" + zid +
-                ", sid=" + sid +
-                ", zbiaoti='" + zbiaoti + '\'' +
-                ", datetime='" + datetime + '\'' +
-                ", text='" + text + '\'' +
-                ", score=" + score +
-                '}';
-    }
-
     public int getZid() {
         return zid;
-
     }
 
     public void setZid(int zid) {
@@ -57,12 +44,12 @@ public class Zhoubao {
         this.zbiaoti = zbiaoti;
     }
 
-    public String getDatetime() {
-        return datetime;
+    public String getZdate() {
+        return zdate;
     }
 
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
+    public void setZdate(String zdate) {
+        this.zdate = zdate;
     }
 
     public String getText() {
@@ -79,6 +66,18 @@ public class Zhoubao {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Zhoubao{" +
+                "zid=" + zid +
+                ", sid=" + sid +
+                ", zbiaoti='" + zbiaoti + '\'' +
+                ", zdate='" + zdate + '\'' +
+                ", text='" + text + '\'' +
+                ", score=" + score +
+                '}';
     }
 }
 

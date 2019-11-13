@@ -1,14 +1,14 @@
-package com.qf.mapper;
+package com.qf.service;
 
-import com.qf.pojo.*;
+import com.qf.pojo.Student;
+import com.qf.pojo.Zhoubao;
+import com.qf.pojo.ZhoubaoTeacher;
 
 import java.util.List;
 
-public interface HeadTeacherMapper {
-
+public interface HeadTeacherService {
     //班主任修改密码
     public int TeacherUpdateUpwd(String uname,String upwd);
-
 
     //周报查看
     public List<ZhoubaoTeacher> WeekPaperPoint();
@@ -23,20 +23,4 @@ public interface HeadTeacherMapper {
     public List<Student> getUserList();
 
     public Student getStudentBySid(int sid);
-
-    //请假审批
-
-    //学生成绩录入
-    public String GetSnameBySid(int sid);
-    public String GetCnameByCid(int cid);
-    public String GetKnameByKid(int kid);
-    public int AddScore(Score score);
-
-
-    //学生信息查看
-
-    public List<Student> GetStudentInfo();
-
-    //个人请假
-    public int AddHoliday(Holiday holiday);
 }
