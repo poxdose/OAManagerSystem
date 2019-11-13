@@ -40,20 +40,21 @@ private UserServiceImpl userServiceImpl;
 
     @RequestMapping("loginPage")
     public String loginPage(){
-        return "loginsim";
+        return "login";
     }
 
 
-    @RequestMapping("login")
+    @RequestMapping("login1")
     public String login(User user){
         String uname = user.getUname();
-            /*System.out.println(user.getUname());
-            System.out.println(user.getUpwd());*/
+            System.out.println(user.getUname());
+            System.out.println(user.getUpwd());
         SecurityUtils.setSecurityManager(securityManager);
         Subject subject = SecurityUtils.getSubject();
 
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getUname(),user.getUpwd());
         try{
+            System.out.println(usernamePasswordToken);
             subject.login(usernamePasswordToken);
             if(subject.isAuthenticated()){
                 Session session = subject.getSession();
@@ -85,7 +86,7 @@ private UserServiceImpl userServiceImpl;
         String upwd = userServiceImpl.getMD5String(upwd1);
 
         int i = userServiceImpl.editupwd(upwd,uname);
-        return "indexsim";
+        return "index";
     }
 
 

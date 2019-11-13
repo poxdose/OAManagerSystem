@@ -6,7 +6,7 @@
     <!-- namespace表示相对路径下接口的地址，insert id表示方法名，parametertype表示参数的类型-->
     <!--获取所有课程-->
     <select id="selectKecheng" resultType="kecheng">
-    select * from kehceng
+    select * from kecheng
 </select>
     <!--添加课程-->
     <insert id="addKecheng" parameterType="kecheng">
@@ -20,6 +20,9 @@
     <update id="updateKecheng" parameterType="int">
     update kecheng set kname=#{kname} where kid=#{kid}
     </update>
+    <select id="getKechengByKid" resultType="kecheng">
+        select * form kecheng where kid=#{kid}
+    </select>
 
 
     <!--  roleeeeeeeeeeeeee  -->
@@ -29,16 +32,19 @@
     </select>
     <!--增加角色-->
     <insert id="addRole" parameterType="role">
-    insert into role(roles) values(#{roles})
+    insert into role(roles) values(#{role})
     </insert>
     <!--    删除角色-->
     <delete id="deleteRole" parameterType="int">
-        delete from role where role_id=#{role}
+        delete from role where role_id=#{roleid}
     </delete>
     <!--   修改课程-->
     <update id="updateRole" parameterType="int">
     update role set roles=#{roles} where role_id=#{role}
     </update>
+    <select id="getRoleByRoleid" resultType="role">
+        select * from role where role_id=#{roleid}
+    </select>
 
     <!--userrrrrrrrrrrrrrrrr-->
     <!--获取所有用户-->
@@ -61,7 +67,10 @@
             <if test="uname!=null">uname LIKE "%"#{uname}"%"</if>
         </where>
     </select>
-
+    <!--根据uid得到user对象-->
+    <select id="getUserByUid" resultType="user">
+        select * from `user` where uid=#{uid}
+    </select>
 
     <!--员工管理 员工信息管理 含搜索功能 -->
     <!--获取所有员工/教师-->
@@ -80,8 +89,11 @@
             <if test="tname!=null">uname LIKE "%"#{tname}"%"</if>
         </where>
     </select>
-
-<!--班级管理-->
+    <!--根据员工id获取teacher对象-->
+    <select id="getTeacherByTid" resultType="teacher">
+        select * from teacher where tid=#{tid}
+    </select>
+    <!--班级管理-->
     <select id="selectClass" resultType="clazz">
     select  * from `class`
     </select>
@@ -97,4 +109,8 @@
     <update id="updateClass" parameterType="int">
     update `class` set cname=#{cname},kid=#{kid},tid=#{tid} where cid=#{cid}
     </update>
+    <!--    根据cid获得班级对象-->
+    <select id="getClassByCid" resultType="clazz">
+        select * from `class` where cid=#{cid}
+    </select>
 </mapper>
