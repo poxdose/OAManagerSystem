@@ -3,7 +3,7 @@ package com.qf.pojo;
 public class Score {
     private int scid;
     private Student student;
-    private Class aclass;
+    private Clazz clazz;
     private Kecheng kecheng;
     private String jieduan;
     private int score;
@@ -24,12 +24,12 @@ public class Score {
         this.student = student;
     }
 
-    public Class getAclass() {
-        return aclass;
+    public Clazz getClazz() {
+        return clazz;
     }
 
-    public void setAclass(Class aclass) {
-        this.aclass = aclass;
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
     }
 
     public Kecheng getKecheng() {
@@ -56,21 +56,13 @@ public class Score {
         this.score = score;
     }
 
-    public Score(int scid, Student student, Class aclass, Kecheng kecheng, String jieduan, int score) {
-        this.scid = scid;
-        this.student = student;
-        this.aclass = aclass;
-        this.kecheng = kecheng;
-        this.jieduan = jieduan;
-        this.score = score;
-    }
-
     public Score() {
     }
 
-    public Score(Student student, Class aclass, Kecheng kecheng, String jieduan, int score) {
+    public Score(int scid, Student student, Clazz clazz, Kecheng kecheng, String jieduan, int score) {
+        this.scid = scid;
         this.student = student;
-        this.aclass = aclass;
+        this.clazz = clazz;
         this.kecheng = kecheng;
         this.jieduan = jieduan;
         this.score = score;
@@ -81,11 +73,19 @@ public class Score {
         return "Score{" +
                 "scid=" + scid +
                 ", student=" + student +
-                ", aclass=" + aclass +
+                ", clazz=" + clazz +
                 ", kecheng=" + kecheng +
                 ", jieduan='" + jieduan + '\'' +
                 ", score=" + score +
                 '}';
+    }
+
+    public Score(Student student, Clazz clazz, Kecheng kecheng, String jieduan, int score) {
+        this.student = student;
+        this.clazz = clazz;
+        this.kecheng = kecheng;
+        this.jieduan = jieduan;
+        this.score = score;
     }
 }
 
