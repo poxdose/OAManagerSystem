@@ -40,7 +40,7 @@ private UserServiceImpl userServiceImpl;
 
     @RequestMapping("loginPage")
     public String loginPage(){
-        return "loginsim";
+        return "login";
     }
 
 
@@ -61,7 +61,7 @@ private UserServiceImpl userServiceImpl;
                 //User user = userServiceImpl.getuser(uname);
                 //session.setAttribute("user",user);
                 session.setAttribute("uname",uname);
-                return "gerenmansage";
+                return "index";
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -69,14 +69,14 @@ private UserServiceImpl userServiceImpl;
         return "redirect:loginPage";
     }
 
-
-    @RequestMapping("edit")
-    public String edit(){
-
+    @RequestMapping("gerenmansage1")
+    public String gerenmansage(){
 
 
-        return "editupwd";
+
+        return "gerenmansage";
     }
+
 
     @RequestMapping("edit1")
     public String edit(String upwd1, HttpServletRequest request, HttpSession session){
@@ -87,6 +87,16 @@ private UserServiceImpl userServiceImpl;
 
         int i = userServiceImpl.editupwd(upwd,uname);
         return "index";
+    }
+
+
+
+    @RequestMapping("addweekpaper")
+    public String addweekpaper(){
+
+
+
+        return "writezhoubao";
     }
 
 
