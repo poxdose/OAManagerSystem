@@ -24,7 +24,7 @@
     </resultMap>
     <resultMap id="zhoubao" type="com.qf.pojo.ZhoubaoTeacher">
         <id property="zid" column="zid"></id>
-        <result property="zbiaoti" column="zbiaoti"></result>
+        <result property="zbiaoti"  column="zbiaoti"></result>
         <result property="datetime" column="zdate"></result>
         <result property="text" column="text"></result>
         <result property="score" column="score"></result>
