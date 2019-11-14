@@ -23,6 +23,7 @@ public class MyRealm  extends AuthorizingRealm {
         String role = userService.getRoleByUname(uname);
         Set<String> roles = new HashSet<String>();
         roles.add(role);
+        System.out.println(role);
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo(roles);
         return simpleAuthorizationInfo;
     }
