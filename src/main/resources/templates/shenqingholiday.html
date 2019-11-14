@@ -147,20 +147,41 @@
                   </div>
                   <div class="card-body">
                     <p>假条</p>
-                    <form>
+                    <form action="saveHolidays">
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">起始日期</label>
-                        <input type="date"  class="form-control">
+                        <input type="date" name="startdate" class="form-control">
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label text-uppercase">终止日期</label>
-                        <input type="date"  class="form-control">
+                        <input type="date" name="enddate" class="form-control">
                       </div>
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">原因</label>
-                        <input type="fail"  class="form-control">
+                        <input type="fail" name="reason" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">请假老师</label>
+                        <input type="text" name="tname" class="form-control">
                       </div>
                       <div class="form-group">       
+                        <button type="submit" class="btn btn-primary">提交</button>
+                      </div>
+                    </form>
+                    <form action="saveHolidayt">
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">起始日期</label>
+                        <input type="date" name="startdate" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">终止日期</label>
+                        <input type="date" name="enddate" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label text-uppercase">原因</label>
+                        <input type="fail" name="reason" class="form-control">
+                      </div>
+                      <div class="form-group">
                         <button type="submit" class="btn btn-primary">提交</button>
                       </div>
                     </form>

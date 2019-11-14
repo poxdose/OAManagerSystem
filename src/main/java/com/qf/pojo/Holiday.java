@@ -6,7 +6,46 @@ public class Holiday {
     private String startdate;
     private String enddate;
     private String reason;
+    private String tname;
     private int state;
+    private User user;//假条申请人
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
+    public Holiday(int hid, int uid, String startdate, String enddate, String reason, int state, User user) {
+        this.hid = hid;
+        this.uid = uid;
+        this.startdate = startdate;
+        this.enddate = enddate;
+        this.reason = reason;
+        this.state = state;
+        this.user = user;
+    }
+
+    public Holiday(int hid, int uid, String startdate, String enddate, String reason, String tname, int state, User user) {
+        this.hid = hid;
+        this.uid = uid;
+        this.startdate = startdate;
+        this.enddate = enddate;
+        this.reason = reason;
+        this.tname = tname;
+        this.state = state;
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Holiday(int hid, int uid, String startdate, String enddate, String reason, int state) {
         this.hid = hid;
@@ -77,6 +116,7 @@ public class Holiday {
                 ", enddate='" + enddate + '\'' +
                 ", reason='" + reason + '\'' +
                 ", state=" + state +
+                ", user=" + user +
                 '}';
     }
 }

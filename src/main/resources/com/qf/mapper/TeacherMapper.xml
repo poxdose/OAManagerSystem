@@ -8,6 +8,11 @@
         <result property="score" column="score"></result>
         <association property="kecheng" resultMap="selectkecheng"></association>
         <association property="student" resultMap="selectstudent"></association>
+        <association property="clazz" resultMap="aclass"></association>
+    </resultMap>
+    <resultMap id="aclass" type="com.qf.pojo.Clazz">
+        <id property="cid" column="cid"></id>
+        <result property="cname" column="cname"></result>
     </resultMap>
     <resultMap id="selectkecheng" type="com.qf.pojo.Kecheng">
         <id property="kid" column="kid"></id>
@@ -26,7 +31,7 @@
         <association property="student" resultMap="selectstudent"></association>
     </resultMap>
     <select id="selectscore" resultMap="score">
-select student.sname,kname,jieduan,score FROM score,class,kecheng,teacher,student WHERE score.cid=class.cid AND class.kid = kecheng.kid and score.sid = student.sid AND class.tid = teacher.tid   AND tname = #{tname}
+select student.sid,student.sname,cname,kname,jieduan,score FROM score,class,kecheng,teacher,student WHERE score.cid=class.cid AND class.kid = kecheng.kid and score.sid = student.sid AND class.tid = teacher.tid   AND tname = #{tname}
 </select>
 
     <update id="updatescore">
@@ -35,6 +40,10 @@ select student.sname,kname,jieduan,score FROM score,class,kecheng,teacher,studen
     <select id="selectstudent" resultType="com.qf.pojo.Student">
     select sname,sage,ssex FROM student,class,teacher WHERE student.cid =class.cid AND class.tid = teacher.tid AND tname=#{tname}
 </select>
+    <select id="selectuidbyuname" resultType="java.lang.Integer">
+
+    select uid from user where uname=#{unames}
+    </select>
   <update id="updatepassword">
            update user set upwd ={upwd} where uname = #{uname}
        </update>

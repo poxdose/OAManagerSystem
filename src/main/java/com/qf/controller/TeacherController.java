@@ -1,6 +1,7 @@
 package com.qf.controller;
 
 import com.qf.pojo.Score;
+import com.qf.pojo.Student;
 import com.qf.pojo.ZhoubaoTeacher;
 import com.qf.service.TeacherService;
 import com.qf.service.TeacherServiceImpl;
@@ -90,5 +91,12 @@ public class TeacherController {
         }
         request.setAttribute("scoreList", scoreList);
         return  "chakanchengji";
+    }
+    @RequestMapping("Txueshengxinxi")
+    public  String chakanstydent(HttpSession session, HttpServletRequest request){
+        String tname = (String) session.getAttribute("uname");
+        List<Student> studentList = teacherService.selectstudent("杨永信");
+        request.setAttribute("studentList", studentList);
+        return "xueshengxinxi";
     }
 }
