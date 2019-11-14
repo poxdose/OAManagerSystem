@@ -35,6 +35,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.editupwd(upwd,uname);
     }
 
+    @Override
+    public String getRoleByRoleId(int role) {
+        return userMapper.getRoleByRoleId(role);
+    }
+
     /*@Override
     public String getsalt(String username) {
         return userMapper.getsalt(username);
