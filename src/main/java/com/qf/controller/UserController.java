@@ -142,4 +142,11 @@ private UserServiceImpl userServiceImpl;
     }
 
 
+    @RequestMapping("studeleteweek")
+    public String studeleteweek(){
+
+
+
+        return "studeleteweekpaper";
+    }
 }
