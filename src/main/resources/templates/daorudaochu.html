@@ -130,7 +130,7 @@
           <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages4" aria-expanded="false" aria-controls="pages4"class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>学生信息管理</span></a>
             <div id="pages4" class="collapse">
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看个人信息</a></li>
+                <li class="sidebar-list-item"><a th:href="@{studentmanager}" class="sidebar-link text-muted pl-lg-5">查看个人信息</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填入学生信息</a></li>
 
               </ul>
@@ -149,23 +149,11 @@
                     <h3 class="h6 text-uppercase mb-0"></h3>
                   </div>
                   <div class="card-body">
-                    <p></p>
-                    <form>
-                      <tr th:each="student,var:${studentList}">
-                        <div class="form-group">
-                          <label class="form-control-label text-uppercase">学生名字</label>
-                          <td th:text="${student.sname}"></td>
-                        </div>
-                      <div class="form-group">
-                        <label class="form-control-label text-uppercase">学生性别</label>
-                        <td th:text="${student.ssex}"></td>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-control-label text-uppercase">学生年龄</label>
-                        <td th:text="${student.sage}"></td>
-                      </div>
-                      </tr>
+                    <form action="upload" method="post" enctype="multipart/form-data">
+                      <input type="file" name="filename"/>
+                      <input type="submit"/>
                     </form>
+                    <a href="export">导出</a>
                   </div>
                 </div>
               </div>

@@ -25,7 +25,7 @@
     </select>
 <!--    学生信息管理:增/删/改/查-->
     <insert id="saveStudent" parameterType="com.qf.pojo.Student">
-        insert into student(sname,ssex,sage) values (#{sname},#{ssex},#{sage})
+        insert into student(sname,ssex,sage,cid) values (#{sname},#{ssex},#{sage},#{cid})
     </insert>
     <delete id="deleteStudent" parameterType="int">
         delete from student where sid=#{sid}
@@ -38,5 +38,24 @@
     </select>
     <select id="getStudentBySid" parameterType="int" resultType="com.qf.pojo.Student">
         select * from student where sid=#{sid}
+    </select>
+<!--成绩查看-->
+<!--   单个学生成绩 -->
+    <select id="getStudentScore" parameterType="com.qf.pojo.Score">
+        select score.score,kecheng.kname FROM score,kecheng,student where student.sname=#{sname} and score.jieduan=#{jieduan} and score.sid=student.sid and kecheng.kid=score.kid
+    </select>
+<!--   本班各阶段平均成绩 -->
+    <select id="getClazzAvgScore1" parameterType="com.qf.pojo.Score" resultType="java.lang.String">
+        select score.jieduan FROM score,class where score.cid=class.cid and class.cname=#{cname} GROUP BY score.jieduan
+    </select>
+    <select id="getClazzAvgScore2" parameterType="com.qf.pojo.Score" resultType="java.lang.Integer">
+        select avg(score.score) FROM score,class where score.cid=class.cid and class.cname=#{cname} GROUP BY score.jieduan
+    </select>
+<!--   某人各阶段成绩-->
+    <select id="getStudentScoreByJieduan1" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select score.score from class,score,student,kecheng where score.cid=class.cid and class.cid=student.cid and class.kid=kecheng.kid and student.sname=#{param1} and kecheng.kname=#{param2}
+    </select>
+    <select id="getStudentScoreByJieduan2" resultType="java.lang.String"  parameterType="java.lang.String">
+        select score.jieduan from class,score,student,kecheng where score.cid=class.cid and class.cid=student.cid and class.kid=kecheng.kid and student.sname=#{param1} and kecheng.kname=#{param2} GROUP BY score.jieduan
     </select>
 </mapper>
