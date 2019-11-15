@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <!--
 查看周报
 -->
@@ -89,7 +90,7 @@
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+                <li class="sidebar-list-item"><a th:href="@{student}" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
@@ -150,26 +151,26 @@
                   <div class="card-body">
                     <p>周报</p>
                     <form>
-                      <tr>
+                      <tr th:each="zhoubao,var:${zhoubaoList}">
                         <div class="form-group">
                           <label class="form-control-label text-uppercase">学生名字</label>
-                          <td>123sad</td>
+                          <td th:text="${zhoubao.student.sname}"></td>
                         </div>
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">标题</label>
-                        <td>123sad</td>
+                        <td th:text="${zhoubao.zbiaoti}"></td>
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label text-uppercase">日期</label>
-                        <td>123sad</td>
+                        <td th:text="${zhoubao.datetime}"></td>
                       </div>
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">内容</label>
-                        <td>123sad</td>
+                        <td th:text="${zhoubao.text}"></td>
                       </div>
                         <div class="form-group">
                           <label class="form-control-label text-uppercase">分数</label>
-                          <td>123sad</td>
+                          <td th:text="${zhoubao.score}"></td>
                         </div>
                       </tr>
                     </form>
@@ -204,4 +205,5 @@
     <script src="js/js.cookie.min.js"></script>
     <script src="js/front.js"></script>
   </body>
+
 </html>

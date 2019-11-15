@@ -2,6 +2,8 @@ package com.qf.controller;
 
 
 import com.qf.pojo.User;
+import com.qf.pojo.Zhoubao;
+import com.qf.service.StudentServiceImpl;
 import com.qf.service.UserServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -17,7 +19,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
-@Autowired
+
+
+    @Autowired
 private UserServiceImpl userServiceImpl;
 
     public UserServiceImpl getUserServiceImpl() {
@@ -38,9 +42,21 @@ private UserServiceImpl userServiceImpl;
         this.securityManager = securityManager;
     }
 
+
+    @Autowired
+    private StudentServiceImpl studentServiceImpl;
+
+    public StudentServiceImpl getStudentServiceImpl() {
+        return studentServiceImpl;
+    }
+
+    public void setStudentServiceImpl(StudentServiceImpl studentServiceImpl) {
+        this.studentServiceImpl = studentServiceImpl;
+    }
+
     @RequestMapping("loginPage")
     public String loginPage(){
-        return "loginsim";
+        return "login";
     }
 
 
@@ -61,7 +77,7 @@ private UserServiceImpl userServiceImpl;
                 //User user = userServiceImpl.getuser(uname);
                 //session.setAttribute("user",user);
                 session.setAttribute("uname",uname);
-                return "gerenmansage";
+                return "index";
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -69,14 +85,14 @@ private UserServiceImpl userServiceImpl;
         return "redirect:loginPage";
     }
 
-
-    @RequestMapping("edit")
-    public String edit(){
-
+    @RequestMapping("gerenmansage1")
+    public String gerenmansage(){
 
 
-        return "editupwd";
+
+        return "gerenmansage";
     }
+
 
     @RequestMapping("edit1")
     public String edit(String upwd1, HttpServletRequest request, HttpSession session){
@@ -90,4 +106,47 @@ private UserServiceImpl userServiceImpl;
     }
 
 
+
+    @RequestMapping("addweekpaper")
+    public String addweekpaper(){
+
+
+
+        return "writezhoubao";
+    }
+
+    @RequestMapping("stuaddzhoubao")
+    public String stuaddzhoubao(Zhoubao zhoubao,HttpServletRequest request, HttpSession session){
+        String uname = (String) session.getAttribute("uname");
+
+
+        System.out.println(zhoubao.getZbiaoti());
+        System.out.println(zhoubao.getText());
+        System.out.println(zhoubao.getZdate());
+        int uid = studentServiceImpl.GetSidByUname(uname);
+
+        int i = studentServiceImpl.AddWeekPaper(uid,zhoubao.getZbiaoti(),zhoubao.getZdate(),zhoubao.getText());
+
+        return "index";
+    }
+
+    @RequestMapping("watchweekpaper")
+    public String watchweekpaper(HttpServletRequest request, HttpSession session){
+        String uname = (String) session.getAttribute("uname");
+        int uid = studentServiceImpl.GetSidByUname(uname);
+        Zhoubao zhoubao = studentServiceImpl.StuWatchWeekPaper(uid);
+        System.out.println(zhoubao);
+        request.setAttribute("uname",uname);
+        request.setAttribute("zhoubao",zhoubao);
+        return "stuchakanzhoubao";
+    }
+
+
+    @RequestMapping("studeleteweek")
+    public String studeleteweek(){
+
+
+
+        return "studeleteweekpaper";
+    }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <script th:src="@{js/echarts.min.js}"></script>
+</head>
+<body>
+    <div id="main1" style="width: 400px;height: 400px"></div>
+
+<script th:inline="javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main1'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '各阶段平均成绩'
+        },
+        tooltip: {},
+        legend: {
+            data:['阶段']
+        },
+        xAxis: {
+            data: /*[[${scoreList}]]*/null
+        },
+        yAxis: {},
+        series: [{
+            name: '分数',
+            type: 'bar',
+            data: /*[[${jieduanList}]]*/null
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>

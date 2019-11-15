@@ -136,47 +136,49 @@
         </ul>
       </div>
       <div class="page-holder w-100 d-flex flex-wrap">
-        <div class="container-fluid px-xl-5">
+        <div >
           <section class="py-5">
-            <div class="row">
-              <!-- Basic Form-->
-              <div class="col-lg-6 mb-5">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="h6 text-uppercase mb-0">审批假条</h3>
+            <div >
+              <div >
+                <div >
+                  <div >
+                    <h6 class="text-uppercase mb-0">审批假条</h6>
                   </div>
-                  <div class="card-body">
-                    <p>假条</p>
-                    <form>
+                  <div class="card-body1">
+                    <table  class="table card-text">
                       <tr>
-                      <div class="form-group">
-                        <label class="form-control-label text-uppercase">姓名</label>
-                        <td>123sad</td>
-                      </div>
-                      <div class="form-group">       
-                        <label class="form-control-label text-uppercase">起始日期</label>
-                        <td>123sad</td>
-                      </div>
-                      <div class="form-group">
-                        <label class="form-control-label text-uppercase">终止日期</label>
-                        <td>123sad</td>
-                      </div>
-                        <div class="form-group">
-                          <label class="form-control-label text-uppercase">原因</label>
-                          <td>123sad</td>
-                        </div>
-                      <div class="form-group">       
-                        <button type="submit" class="btn btn-primary">同意</button>
-                      </div>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>请假起始时间</th>
+                        <th>请假结束时间</th>
+                        <th>原因</th>
+                        <th>操作</th>
                       </tr>
-                    </form>
+
+
+                      <ts th:each="holiday,var:${holidayList}">
+
+                          <tr >
+                            <th th:text="${var.count}"></th>
+                            <td th:text="${holiday.user.uname}"></td>
+                            <td th:text="${holiday.startdate}"></td>
+                            <td th:text="${holiday.enddate}"> </td>
+                            <td th:text="${holiday.reason}"> </td>
+                            <td><a th:href="@{updateHoliday(hid=${holiday.hid})}" class="navbar-brand font-weight-bold text-uppercase text-base">通过</a></td>
+
+
+
+                          </tr>
+
+                      </ts>
+                    </table>
                   </div>
                 </div>
               </div>
-
             </div>
           </section>
         </div>
+        </form>
         <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
           <div class="container-fluid">
             <div class="row">

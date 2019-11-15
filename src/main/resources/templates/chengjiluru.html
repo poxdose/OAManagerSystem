@@ -137,86 +137,46 @@
             </li>
         </ul>
     </div>
-    <div class="page-holder w-100 d-flex flex-wrap">
-        <form>
-        <div class="container-fluid px-xl-5">
-            <section class="py-5">
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
+<div class="page-holder w-100 d-flex flex-wrap">
+    <div >
+        <section class="py-5">
+            <div >
+                <div >
+                    <div >
                         <div >
-                            <div >
-                                <h6 class="text-uppercase mb-0">成绩录入</h6>
-                            </div>
-                            <div class="card-body1">
-                                <table class="table card-text">
-                                    <thead>
+                            <h6 class="text-uppercase mb-0">成绩录入</h6>
+                        </div>
+                        <div class="card-body1">
+                                <table  class="table card-text">
                                     <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td><input type="text"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <th>序号</th>
+                                        <th>学生姓名</th>
+                                        <th>课程</th>
+                                        <th>阶段</th>
+                                        <th>分数</th>
+                                        <th>操作</th>
                                     </tr>
 
-                                    </tbody>
 
+                                    <ts th:each="score,var:${scoreList}">
+                                       <form action="chengjiluruform" method="post">
+                                            <tr th:if="${score.score!=0}">
+                                                <th th:text="${var.count}"></th>
+                                                <td th:text="${score.student.sname}"></td>
+                                                <td th:text="${score.kecheng.kname}"></td>
+                                                <td th:text="${score.jieduan}"> </td>
+
+                                                <td>
+                                                    <input type="text" name="score"></td>
+                                                <td>
+                                                <td>
+                                                <input type="hidden" name="sid" th:value="${score.student.sid}">
+                                            </td>
+                                             <td><button type="submit" class="btn btn-primary">提交</button></td>
+                                            </tr>
+                                        </form>
+                                    </ts>
                                 </table>
-                                <input type="submit" value="tijiao">
                             </div>
                         </div>
                     </div>

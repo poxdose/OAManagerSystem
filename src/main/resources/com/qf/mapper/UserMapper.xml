@@ -8,7 +8,11 @@
     </select>
 
     <select id="getRoleByUname" resultType="java.lang.String">
-        select role_id from user where uname=#{uname}
+        select roles from user,role where user.role_id=role.role and uname=#{uname}
+    </select>
+
+    <select id="getRoleByRoleId" resultType="java.lang.String">
+        select roles from role where role=#{role}
     </select>
 
 
