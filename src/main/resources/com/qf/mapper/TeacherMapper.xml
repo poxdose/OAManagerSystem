@@ -40,10 +40,7 @@ select student.sid,student.sname,cname,kname,jieduan,score FROM score,class,kech
     <select id="selectstudent" resultType="com.qf.pojo.Student">
     select sname,sage,ssex FROM student,class,teacher WHERE student.cid =class.cid AND class.tid = teacher.tid AND tname=#{tname}
 </select>
-    <select id="selectuidbyuname" resultType="java.lang.Integer">
 
-    select uid from user where uname=#{unames}
-    </select>
   <update id="updatepassword">
            update user set upwd ={upwd} where uname = #{uname}
        </update>

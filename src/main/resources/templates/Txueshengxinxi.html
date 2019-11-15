@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<!--批改周报-->
+
+<!--
+查看周报
+-->
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
   <head>
     <meta charset="utf-8">
@@ -87,7 +90,7 @@
               <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
                 <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
-                <li class="sidebar-list-item"><a href="" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+                <li class="sidebar-list-item"><a th:href="@{student}" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
               </ul>
             </div>
           </li>
@@ -136,50 +139,45 @@
         </ul>
       </div>
       <div class="page-holder w-100 d-flex flex-wrap">
-        <div >
+        <div>
           <section class="py-5">
-            <div >
-              <div >
-                <div >
-                  <div >
-                    <h6 class="text-uppercase mb-0">批改周报</h6>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <h6 class="text-uppercase mb-0">学生信息</h6>
                   </div>
                   <div class="card-body1">
-
-                    <table >
+                    <table class="table card-text">
                       <tr>
-                        <td>序号</td>
-                        <td>学生姓名</td>
-                        <td>标题</td>
-                        <td>日期</td>
-                        <td>内容</td>
-                        <td>分数</td>
+                        <th>序号</th>
+                        <th>学生姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
                       </tr>
-                      <ts th:each="zhoubao,var:${zhoubaoTeacherList}">
-                      <form action="pagaizhoubaoform" method="post">
-                      <tr th:if="${zhoubao.score==0}">
-                        <th th:text="${var.count}"></th>
-                        <td th:text="${zhoubao.student.sname}"></td>
-                        <td th:text="${zhoubao.zbiaoti}"></td>
-                        <td th:text="${zhoubao.datetime}"> </td>
-                        <td th:text="${zhoubao.text}"> </td>
-                        <td><input type="hidden" name="sid" th:value="${zhoubao.student.sid}"></td>
-                        <td>
-                        <input type="text"name="score" width="50px"></td>
-                      <td>
 
-                          <button type="submit" class="btn btn-primary">提交</button>
-                      </tr>
-                    </form>
+                      <ts th:each="student,var:${studentList}">
+
+                        <tr >
+                          <th th:text="${var.count}"></th>
+                          <td th:text="${student.sname}"></td>
+                          <td th:text="${student.sage}"></td>
+                          <td th:text="${student.ssex}"></td>
+
+                          <td>
+
+
+                        </tr>
+
                       </ts>
                     </table>
-
-
+                  </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
+        </form>
         <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
           <div class="container-fluid">
             <div class="row">
@@ -187,7 +185,9 @@
                 <p class="mb-2 mb-md-0">Your company &copy; 2018-2020</p>
               </div>
               <div class="col-md-6 text-center text-md-right text-gray-400">
-                <p class="mb-0">Copyright &copy; 2019.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                <p class="mb-0">Copyright &copy; 2019.Company name All rights reserved.More Templates <a
+                        href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a
+                        href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
                 <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
               </div>
             </div>
@@ -204,4 +204,5 @@
     <script src="js/js.cookie.min.js"></script>
     <script src="js/front.js"></script>
   </body>
+
 </html>

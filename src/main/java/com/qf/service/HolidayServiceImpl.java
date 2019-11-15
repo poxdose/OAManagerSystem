@@ -71,10 +71,11 @@ public class HolidayServiceImpl implements HolidayService {
     public int addHolidayt(Holiday holiday) {
         holidayMapper.addHoliday(holiday);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("tname", holiday.getUser().getUname());
+        String u = holiday.getUser().getUname()+"111";
+        map.put("tname", u );
         map.put("xiao", "wang");
         runtimeService.startProcessInstanceByKey("teacherholiday", holiday.getHid() + "", map);
-        Task task = taskService.createTaskQuery().taskAssignee(holiday.getUser().getUname()).singleResult();
+        Task task = taskService.createTaskQuery().taskAssignee(u).singleResult();
 
         taskService.complete(task.getId());
         return holiday.getHid();

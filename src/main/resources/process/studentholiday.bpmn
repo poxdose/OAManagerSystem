@@ -20,10 +20,10 @@
     <sequenceFlow id="_18" name="请假超过三天" sourceRef="_8" targetRef="_9">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${days >= 3}]]></conditionExpression>
     </sequenceFlow>
-    <sequenceFlow id="_19" name="请假小于三天" sourceRef="_8" targetRef="_10">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${days < 3]]></conditionExpression>
-    </sequenceFlow>
     <sequenceFlow id="_20" sourceRef="_9" targetRef="_10"/>
+    <sequenceFlow id="_19" name="请假小于3" sourceRef="_8" targetRef="_10">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${days<3}]]></conditionExpression>
+    </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram documentation="background=#FFFFFF;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
     <bpmndi:BPMNPlane bpmnElement="studentholiday">

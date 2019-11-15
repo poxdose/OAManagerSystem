@@ -32,6 +32,9 @@
             </foreach>
         </if>
     </select>
+    <select id="selectuidbyuname" resultType="java.lang.Integer">
+    select uid from user where uname=#{uname}
+    </select>
     <update id="updateHoliday">
         update holiday set state=#{param2} where hid =#{param1}
     </update>
