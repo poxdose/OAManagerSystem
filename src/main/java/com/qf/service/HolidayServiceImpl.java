@@ -55,8 +55,8 @@ public class HolidayServiceImpl implements HolidayService {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sname", holiday.getUser().getUname());
         map.put("tname", holiday.getTname());
-        map.put("ban", "zhang");
-        map.put("xiao", "wang");
+        map.put("ban", "jiaowenhui");
+        map.put("xiao", "qqq");
         int days = getDays(holiday.getStartdate(),holiday.getEnddate());
         map.put("days",days);
         System.out.println(days);
@@ -73,7 +73,7 @@ public class HolidayServiceImpl implements HolidayService {
         Map<String, Object> map = new HashMap<String, Object>();
         String u = holiday.getUser().getUname()+"111";
         map.put("tname", u );
-        map.put("xiao", "wang");
+        map.put("xiao", "qqq");
         runtimeService.startProcessInstanceByKey("teacherholiday", holiday.getHid() + "", map);
         Task task = taskService.createTaskQuery().taskAssignee(u).singleResult();
 

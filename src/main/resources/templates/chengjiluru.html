@@ -160,7 +160,7 @@
 
                                     <ts th:each="score,var:${scoreList}">
                                        <form action="chengjiluruform" method="post">
-                                            <tr th:if="${score.score!=0}">
+                                            <tr th:if="${score.score==0}">
                                                 <th th:text="${var.count}"></th>
                                                 <td th:text="${score.student.sname}"></td>
                                                 <td th:text="${score.kecheng.kname}"></td>

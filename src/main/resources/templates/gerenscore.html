@@ -84,54 +84,62 @@
   <div id="sidebar" class="sidebar py-3">
     <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
     <ul class="sidebar-menu list-unstyled">
-      <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>个人资料管理</span></a></li>
+      <li class="sidebar-list-item"><a href="gerenmansage1" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>个人资料管理</span></a></li>
       <li class="sidebar-list-item"><a href="charts.html"data-toggle="collapse" data-target="#pages2" aria-expanded="false" aria-controls="pages2" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>周报管理</span></a>
         <div id="pages2" class="collapse">
           <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
-            <li class="sidebar-list-item"><a th:href="@{student}" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+            <li class="sidebar-list-item" shiro:hasRole="学生"><a href="addweekpaper" class="sidebar-link text-muted pl-lg-5">填写周报</a></li>
+            <li class="sidebar-list-item"shiro:hasRole="讲师"><a href="pigaizhoubao" class="sidebar-link text-muted pl-lg-5">审批周报</a></li>
+            <li class="sidebar-list-item" shiro:hasRole="学生"><a href="watchweekpaper" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+            <li class="sidebar-list-item" shiro:hasRole="讲师"><a href="tchakanzhoubao" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
+            <li class="sidebar-list-item" shiro:hasAnyRoles="班主任,校长"><a href="student" class="sidebar-link text-muted pl-lg-5">查看周报</a></li>
           </ul>
-        </div>
+        </div>`
       </li>
       <li class="sidebar-list-item"><a href="tables.html" data-toggle="collapse" data-target="#pages1" aria-expanded="false" aria-controls="pages1" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>请假</span></a>
         <div id="pages1" class="collapse">
           <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">申请</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">审批</a></li>
+            <li class="sidebar-list-item" shiro:hasAnyRoles="班主任,学生,讲师"><a href="shengqingjia" class="sidebar-link text-muted pl-lg-5">申请</a></li>
+            <li class="sidebar-list-item"shiro:hasAnyRoles="班主任,校长,讲师"><a href="getHolidays" class="sidebar-link text-muted pl-lg-5">审批</a></li>
+            <li class="sidebar-list-item" shiro:hasAnyRoles="班主任,学生,讲师"><a href="getHoliday" class="sidebar-link text-muted pl-lg-5">查看我的假条</a></li>
           </ul>
         </div>
       </li>
       <li class="sidebar-list-item"><a href="forms.html" data-toggle="collapse" data-target="#pages3" aria-expanded="false" aria-controls="pages3" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>成绩管理</span></a>
         <div id="pages3" class="collapse">
           <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩查看</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">成绩录入</a></li>
+            <li class="sidebar-list-item"shiro:hasRole="讲师"><a href="Tchakanchengji" class="sidebar-link text-muted pl-lg-5">成绩查看</a></li>
+            <li class="sidebar-list-item"shiro:hasAnyRoles="班主任,校长"><a href="loginavgscore" class="sidebar-link text-muted pl-lg-5">查看各班各阶段平均成绩</a></li>
+            <li class="sidebar-list-item"shiro:hasAnyRoles="班主任,校长"><a href="logingerenscore" class="sidebar-link text-muted pl-lg-5">查看学生各阶段分数</a></li>
+            <li class="sidebar-list-item" shiro:hasRole="讲师"><a href="chengjiluru" class="sidebar-link text-muted pl-lg-5">成绩录入</a></li>
 
           </ul>
         </div>
 
       </li>
-      <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>超级管理员</span></a>
+      <li class="sidebar-list-item" shiro:hasRole="超级管理员"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>超级管理员</span></a>
         <div id="pages" class="collapse">
           <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">课程管理</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">角色管理</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">用户管理</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">班级管理</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">员工管理</a></li>
+            <li class="sidebar-list-item"><a href="kechengList" class="sidebar-link text-muted pl-lg-5">课程管理</a></li>
+            <li class="sidebar-list-item"><a href="roleList" class="sidebar-link text-muted pl-lg-5">角色管理</a></li>
+            <li class="sidebar-list-item"><a href="userList" class="sidebar-link text-muted pl-lg-5">用户管理</a></li>
+            <li class="sidebar-list-item"><a href="classList" class="sidebar-link text-muted pl-lg-5">班级管理</a></li>
+            <li class="sidebar-list-item"><a href="teacherList" class="sidebar-link text-muted pl-lg-5">员工管理</a></li>
           </ul>
         </div>
       </li>
-      <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
+      <li class="sidebar-list-item"><a href="loginPage" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Login</span></a></li>
     </ul>
     <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
     <ul class="sidebar-menu list-unstyled">
       <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages4" aria-expanded="false" aria-controls="pages4"class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>学生信息管理</span></a>
         <div id="pages4" class="collapse">
           <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-            <li class="sidebar-list-item"><a href="" class="sidebar-link text-muted pl-lg-5">查看个人信息</a></li>
-            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">填入学生信息</a></li>
+            <li class="sidebar-list-item"shiro:hasRole="讲师"><a href="Txueshengxinxi" class="sidebar-link text-muted pl-lg-5">查看学生信息</a></li>
+            <li class="sidebar-list-item"shiro:hasAnyRoles="班主任,校长"><a href="studentmanager" class="sidebar-link text-muted pl-lg-5">查看学生信息</a></li>
+            <li class="sidebar-list-item"shiro:hasAnyRoles="班主任,校长"><a href="daorudaochu" class="sidebar-link text-muted pl-lg-5">导入导出</a></li>
+
+            <li class="sidebar-list-item" shiro:hasRole="班主任"><a href="addStudent" class="sidebar-link text-muted pl-lg-5">填入学生信息</a></li>
 
           </ul>
         </div>

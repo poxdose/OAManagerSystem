@@ -32,7 +32,7 @@ public class TeacherController {
     @RequestMapping("pigaizhoubao")
     public String pigaizhoubao(HttpSession session, HttpServletRequest request) {
         String tname = (String) session.getAttribute("uname");
-        List<ZhoubaoTeacher> zhoubaoTeacherList = teacherService.selectzhoubao("tnaem");
+        List<ZhoubaoTeacher> zhoubaoTeacherList = teacherService.selectzhoubao(tname);
         for (ZhoubaoTeacher Z:zhoubaoTeacherList
              ) {
             System.out.println(Z);
@@ -67,7 +67,7 @@ public class TeacherController {
     @RequestMapping("chengjiluru")
     public String tables(HttpSession session, HttpServletRequest request){
         String tname = (String) session.getAttribute("uname");
-        List<Score> scoreList =  teacherService.selectscore("tname");
+        List<Score> scoreList =  teacherService.selectscore(tname);
         for (Score s:scoreList
         ) {
             System.out.println(s);
@@ -90,10 +90,10 @@ public class TeacherController {
         }
         return "redirect:index";
     }
-    @RequestMapping("chakanchengji")
+    @RequestMapping("Tchakanchengji")
     public String chengji(HttpSession session, HttpServletRequest request){
         String tname = (String) session.getAttribute("uname");
-        List<Score> scoreList =  teacherService.selectscore("tname");
+        List<Score> scoreList =  teacherService.selectscore(tname);
         for (Score s:scoreList
         ) {
             System.out.println(s);
@@ -105,7 +105,7 @@ public class TeacherController {
     @RequestMapping("Txueshengxinxi")
     public  String chakanstydent(HttpSession session, HttpServletRequest request){
         String tname = (String) session.getAttribute("uname");
-        List<Student> studentList = teacherService.selectstudent("tname");
+        List<Student> studentList = teacherService.selectstudent(tname);
         request.setAttribute("studentList", studentList);
         return "Txueshengxinxi";
     }

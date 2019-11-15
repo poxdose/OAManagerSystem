@@ -168,7 +168,7 @@
                         <button type="submit" class="btn btn-primary">提交</button>
                       </div>
                     </form>
-                    <form action="saveHolidayt" shiro:hasRole="讲师">
+                    <form action="saveHolidayt" shiro:hasAnyRoles="讲师,班主任">
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">起始日期</label>
                         <input type="date" name="startdate" class="form-control">

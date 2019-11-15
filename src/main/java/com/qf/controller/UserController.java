@@ -90,7 +90,8 @@ private UserServiceImpl userServiceImpl;
 
 
 
-        return "gerenmansage";
+        return "gere" +
+                "nmansage";
     }
 
 
