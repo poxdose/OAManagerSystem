@@ -6,7 +6,7 @@ Teacher {
     private String tname;
     private int tage;
     private String tsex;
-    private int roel_id;
+    private int role_id;
 
     @Override
     public String toString() {
@@ -15,7 +15,7 @@ Teacher {
                 ", tname='" + tname + '\'' +
                 ", tage=" + tage +
                 ", tsex='" + tsex + '\'' +
-                ", roel_id=" + roel_id +
+                ", role_id=" + role_id +
                 '}';
     }
 
@@ -51,20 +51,20 @@ Teacher {
         this.tsex = tsex;
     }
 
-    public int getRoel_id() {
-        return roel_id;
+    public int getRole_id() {
+        return role_id;
     }
 
-    public void setRoel_id(int roel_id) {
-        this.roel_id = roel_id;
+    public void setRole_id(int role_id) {
+        this.role_id = role_id;
     }
 
-    public Teacher(int tid, String tname, int tage, String tsex, int roel_id) {
+    public Teacher(int tid, String tname, int tage, String tsex, int role_id) {
         this.tid = tid;
         this.tname = tname;
         this.tage = tage;
         this.tsex = tsex;
-        this.roel_id = roel_id;
+        this.role_id = role_id;
     }
 
     public Teacher() {

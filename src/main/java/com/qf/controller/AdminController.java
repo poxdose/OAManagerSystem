@@ -19,15 +19,19 @@ public class AdminController {
     private AdminService adminService;
 
     //----------------------------------课程管理---------------------------------------------------
+    @RequestMapping("addKecheng")
+    public String addKecheng(){
+        return "addKecheng";
+    }
 //添加课程
     @RequestMapping("saveKecheng")
     public String saveKecheng(Kecheng kecheng) {
         int i = adminService.addKecheng(kecheng);
         if (i > 0) {
             //重定向到某Mapping
-            return "redirect:index";
+            return "redirect:kechengList";
         }
-        return "redirect:addUser";
+        return "redirect:addKecheng";
     }
 
     //删除课程
@@ -43,12 +47,13 @@ public class AdminController {
     }
 
     //修改课程
-//数据回显
+    //数据回显
     @RequestMapping("echoKecheng")
     public String editKecheng(int kid, Model model, HttpSession session) {
         //从session获取uname
         //   String uname = (String) session.getAttribute("uname");
         //   Student student = studentService.getStudentByUname(uname);
+        System.out.println(kid);
         Kecheng kecheng = adminService.getKechengByKid(kid);
         model.addAttribute("kecheng", kecheng);
         //带着参数跳转到回显删除页面
@@ -61,7 +66,7 @@ public class AdminController {
         int i = adminService.updateKecheng(kecheng);
         if (i > 0) {
             //修改成功重定向请求
-            return "redirect:";
+            return "redirect:kechengList";
         }
         return "redirect:echoKecheng?kid=" + kecheng.getKid();
     }
@@ -77,21 +82,25 @@ public class AdminController {
 
     //----------------------------------角色管理---------------------------------------------------
     //添加
+    @RequestMapping("addRole")
+    public String addRole(){
+        return "addRole";
+    }
     @RequestMapping("saveRole")
     public String saveRole(Role role) {
         int i = adminService.addRole(role);
         if (i > 0) {
             //重定向到某Mapping
-            return "redirect:index";
+            return "redirect:roleList";
         }
-        return "redirect:addUser";
+        return "redirect:addRole";
     }
 
     //删除
     @RequestMapping("deleteRole")
     @ResponseBody
-    public String deleteRole(int rid) {
-        int i = adminService.deleteRole(rid);
+    public String deleteRole(int role) {
+        int i = adminService.deleteRole(role);
         if (i > 0) {
             System.out.println("角色删除成功");
             return "success";
@@ -106,10 +115,12 @@ public class AdminController {
         //从session获取uname
         //   String uname = (String) session.getAttribute("uname");
         //   Student student = studentService.getStudentByUname(uname);
+        System.out.println(rid);
         Role role = adminService.getRoleByRoleid(rid);
         model.addAttribute("role", role);
+        System.out.println(role);
         //带着参数跳转到回显删除页面
-        return "juese";
+        return "editRole";
     }
 
     //进行修改操作
@@ -118,7 +129,7 @@ public class AdminController {
         int i = adminService.updateRole(role);
         if (i > 0) {
             //修改成功重定向请求
-            return "redirect:";
+            return "redirect:roleList";
         }
         //role就是rid
         return "redirect:echoRole?rid=" + role.getRole();
@@ -129,6 +140,7 @@ public class AdminController {
     public String roleList(Model model) {
         List<Role> roleList = adminService.selectRole();
         model.addAttribute("roleList", roleList);
+        System.out.println(roleList);
         return "juese";
     }
 
@@ -149,33 +161,36 @@ public class AdminController {
 
     //修改
     //数据回显
-    @RequestMapping("echoUser")
-    public String editUser(int uid, Model model, HttpSession session) {
-        //从session获取uname
-        //   String uname = (String) session.getAttribute("uname");
-        //   Student student = studentService.getStudentByUname(uname);
-        User user = adminService.getUserByUid(uid);
-        model.addAttribute("user",user);
-        //带着参数跳转到回显删除页面
-        return "yonghu";
-    }
+//    @RequestMapping("echoUser")
+//    public String editUser(int uid, Model model, HttpSession session) {
+//        //从session获取uname
+//        //   String uname = (String) session.getAttribute("uname");
+//        //   Student student = studentService.getStudentByUname(uname);
+//        User user = adminService.getUserByUid(uid);
+//        model.addAttribute("user",user);
+//        //带着参数跳转到回显删除页面
+//        return "yonghu";
+//    }
 
     //进行修改操作，只能重置密码为123456
     @RequestMapping("editUser")
-    public String updateUser(User user) {
-        int i = adminService.updatepassword(user);
+    public String updateUser(int uid) {
+        User user = adminService.getUserByUid(uid);
+        int i = adminService.updatepassword(user.getUname());
         if (i > 0) {
             //修改成功重定向请求
-            return "redirect:";
+            return "redirect:userList";
         }
-        return "redirect:echoUser?uid=" + user.getUid();
+        //return "redirect:echoUser?uid=" + user.getUid();
+        System.out.println("修改失败");
+        return "redirect:userList";
     }
 
     //进行查看操作
     @RequestMapping("userList")
     public String userList(Model model) {
-        List<Role> roleList = adminService.selectRole();
-        model.addAttribute("roleList", roleList);
+        List<User> userList = adminService.selectUser();
+        model.addAttribute("userList", userList);
         return "yonghu";
     }
 
@@ -183,9 +198,11 @@ public class AdminController {
     //根据uname进行搜索
     @RequestMapping("searchUser")
     public String searchUser(Model model,String uname){
+        System.out.println(uname);
         //从页面搜索框获取员工姓名
-        List<User> searchUserList= adminService.selectUserByUsername(uname);
-        model.addAttribute("searchUserList",searchUserList);
+        List<User> searchUserList= adminService.selectUserByUsername("%"+uname+"%");
+        System.out.println(searchUserList);
+        model.addAttribute("userList",searchUserList);
         return "yonghu";
     }
 
@@ -201,7 +218,7 @@ public class AdminController {
         Teacher teacher= adminService.getTeacherByTid(tid);
         model.addAttribute("teacher",teacher);
         //带着参数跳转到回显删除页面
-        return "yuangong";
+        return "editYuangong";
     }
 
     //进行修改操作
@@ -210,7 +227,7 @@ public class AdminController {
         int i = adminService.updateTeacher(teacher);
         if (i > 0) {
             //修改成功重定向请求
-            return "redirect:";
+            return "redirect:teacherList";
         }
         return "redirect:echoTeacher?tid=" + teacher.getTid();
     }
@@ -227,23 +244,29 @@ public class AdminController {
     @RequestMapping("searchTeacher")
     public String searchTeacher(Model model,String tname){
         //从页面搜索框获取员工姓名
-       List<Teacher> searchTeacherList= adminService.selectTeacherByTeachername(tname);
-       model.addAttribute("searchTeacherList",searchTeacherList);
+       List<Teacher> searchTeacherList= adminService.selectTeacherByTeachername("%" + tname + "%");
+       model.addAttribute("teacherList",searchTeacherList);
        return "yuangong";
     }
 
 
     //----------------------------------班级管理---------------------------------------------------
     //包含分配讲师，班主任
+
     //添加
+    @RequestMapping("addClass")
+    public String addClass(){
+        return "addClass";
+    }
+
     @RequestMapping("saveClass")
     public String saveClass(Clazz clazz) {
         int i = adminService.addClass(clazz);
         if (i > 0) {
             //重定向到某Mapping
-            return "redirect:index";
+            return "redirect:classList";
         }
-        return "redirect:addUser";
+        return "redirect:addClass";
     }
 
     //删除

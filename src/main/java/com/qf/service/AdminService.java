@@ -16,11 +16,11 @@ public interface AdminService {
     public int addRole(Role role);
     public int deleteRole(int roleid);
     public int updateRole(Role role);
-    public Role getRoleByRoleid(int roleid);
+    public Role getRoleByRoleid(int rid);
     //用户管理
     public List<User> selectUser();
     public int deleteUser(int uid);
-    public int updatepassword(User user);
+    public int updatepassword(String uname);
     public User getUserByUid(int uid);
     //根据用户名模糊查询用户
     public List<User> selectUserByUsername(String uname);
