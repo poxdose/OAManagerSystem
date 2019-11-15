@@ -67,8 +67,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Role getRoleByRoleid(int roleid) {
-        return adminMapper.getRoleByRoleid(roleid);
+    public Role getRoleByRoleid(int rid) {
+        return adminMapper.getRoleByRoleid(rid);
     }
 
     @Override
@@ -82,8 +82,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public int updatepassword(User user) {
-        return adminMapper.updatepassword(user);
+    public int updatepassword(String uname) {
+        return adminMapper.updatepassword(uname);
     }
 
     @Override
