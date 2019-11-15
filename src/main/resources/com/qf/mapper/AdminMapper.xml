@@ -21,7 +21,7 @@
     update kecheng set kname=#{kname} where kid=#{kid}
     </update>
     <select id="getKechengByKid" resultType="kecheng">
-        select * form kecheng where kid=#{kid}
+        select * from kecheng where kid=#{kid}
     </select>
 
 
