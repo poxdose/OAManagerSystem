@@ -57,15 +57,15 @@
               <div class="col-lg-6 mb-5">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="h6 text-uppercase mb-0"><a href="roleList">查询角色》》</a><br/></h3>
+                    <h3 class="h6 text-uppercase mb-0"><a href="kechengList">查询课程》》</a><br/></h3>
                   </div>
                   <div class="card-body">
-                    <p>修改角色</p>
-                    <form action="editRole" method="post">
+                    <p>修改课程</p>
+                    <form action="editKecheng" method="post">
                       <div class="form-group">
                         <label class="form-control-label text-uppercase">要修改为：</label>
-                        <input type="hidden" name="role" th:value="${role.role}"/>
-                        <input type="fail"  class="form-control" name="roles" th:value="${role.roles}"/>
+                        <input type="hidden" name="kid" th:value="${kecheng.kid}"/>
+                        <input type="fail"  class="form-control" name="kname" th:value="${kecheng.kname}"/>
                       </div>
                       <div class="form-group">
                         <button type="submit" class="btn btn-primary">提交</button>

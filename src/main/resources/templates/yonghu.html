@@ -25,6 +25,28 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script th:src="@{js/jquery-3.4.1.js}"></script>
+    <script>
+      $(function () {
+        $(".alert").click(function () {
+          alert("重置成功")
+        })
+      })
+    </script>
+    <script>
+      $(function () {
+        $(".delBtn").click(function () {
+          var uid = $(this).attr("data");
+          $.post("deleteUser",{uid:uid},function (data) {
+            if (data == "success"){
+              $("#tr"+uid).remove();
+            }else {
+              alert("删除失败")
+            }
+          })
+        })
+      })
+    </script>
   </head>
   <body>
     <!-- navbar-->
@@ -32,10 +54,10 @@
       <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">Bubbly Dashboard</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
           <li class="nav-item">
-            <form id="searchForm" class="ml-auto d-none d-lg-block">
+            <form id="searchForm" class="ml-auto d-none d-lg-block" action="searchUser">
               <div class="form-group position-relative mb-0">
                 <button type="submit" style="top: -3px; left: 0;" class="position-absolute bg-white border-0 p-0"><i class="o-search-magnify-1 text-gray text-lg"></i></button>
-                <input type="search" placeholder="Search ..." class="form-control form-control-sm border-0 no-shadow pl-4">
+                <input type="text" placeholder="查询用户" class="form-control form-control-sm border-0 no-shadow pl-4" th:name=uname >
               </div>
             </form>
           </li>
@@ -147,32 +169,21 @@
                   <div class="card-body">
                     <table class="table card-text">
                       <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
+                      <tr>
+                        <th>#</th>
+                        <th>用户名</th>
+                        <th>操作</th>
+                      </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                      <tr th:id="tr+${user.uid}" th:each="user,var:${userList}">
+                        <td th:text="${var.count}"></td>
+                        <td th:text="${user.uname}"></td>
+                        <td>
+                          <a th:href="@{editUser(uid=${user.uid})}" class="alert" th:text="重置密码"></a>
+                          <a href="javascript:void(0)" th:data="${user.uid}"  th:text="删除" class="delBtn"></a>
+                        </td>
+                      </tr>
                       </tbody>
                     </table>
                   </div>
