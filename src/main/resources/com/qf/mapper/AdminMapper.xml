@@ -10,14 +10,14 @@
 </select>
     <!--添加课程-->
     <insert id="addKecheng" parameterType="kecheng">
- insert into kecheng(kid,kname) values(#{kid},#{kname})
+ insert into kecheng(kname) values(#{kname})
 </insert>
     <!--删除课程-->
     <delete id="deleteKecheng" parameterType="int">
         delete from kecheng where kid=#{kid}
     </delete>
     <!--   修改课程-->
-    <update id="updateKecheng" parameterType="int">
+    <update id="updateKecheng" parameterType="kecheng">
     update kecheng set kname=#{kname} where kid=#{kid}
     </update>
     <select id="getKechengByKid" resultType="kecheng">
@@ -36,14 +36,14 @@
     </insert>
     <!--    删除角色-->
     <delete id="deleteRole" parameterType="int">
-        delete from role where role_id=#{roleid}
+        delete from role where role=#{roleid}
     </delete>
     <!--   修改课程-->
-    <update id="updateRole" parameterType="int">
-    update role set roles=#{roles} where role_id=#{role}
+    <update id="updateRole" parameterType="role">
+    update role set roles=#{roles} where role=#{role}
     </update>
     <select id="getRoleByRoleid" resultType="role">
-        select * from role where role_id=#{roleid}
+        select * from role where role=#{rid}
     </select>
 
     <!--userrrrrrrrrrrrrrrrr-->
@@ -57,15 +57,13 @@
         delete from `user` where uid=#{uid}
     </delete>
     <!--   根据用户名修改用户，只能重置密码为123456-->
-    <update id="updateUser" parameterType="int">
-    update `user` set upwd=123456 where uname=#{uname}
+    <update id="updatepassword" parameterType="user">
+    update `user` set upwd=e10adc3949ba59abbe56e057f20f883e where uname=#{uname}
     </update>
     <!--    查询用户，模糊搜索-->
     <select id="selectUserByUsername" resultType="user">
-        select * from `user`
-        <where>
-            <if test="uname!=null">uname LIKE "%"#{uname}"%"</if>
-        </where>
+        select * from `user` where true
+        <if test="_parameter!=null"> and uname LIKE #{uname}</if>
     </select>
     <!--根据uid得到user对象-->
     <select id="getUserByUid" resultType="user">
@@ -84,10 +82,10 @@
 
     <!--    查询员工，模糊搜索-->
     <select id="selectTeacherByTeachername" resultType="teacher">
-        select * from `teacher`
-        <where>
-            <if test="tname!=null">uname LIKE "%"#{tname}"%"</if>
-        </where>
+        select * from `teacher` where true
+
+        <if test="_parameter!=null"> and tname LIKE #{tname}</if>
+
     </select>
     <!--根据员工id获取teacher对象-->
     <select id="getTeacherByTid" resultType="teacher">
@@ -106,7 +104,7 @@
         delete from `class` where cid=#{cid}
     </delete>
     <!--   修改-->
-    <update id="updateClass" parameterType="int">
+    <update id="updateClass" parameterType="clazz">
     update `class` set cname=#{cname},kid=#{kid},tid=#{tid} where cid=#{cid}
     </update>
     <!--    根据cid获得班级对象-->
