@@ -2,12 +2,10 @@ package com.qf.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.qf.pojo.Student;
-import com.qf.pojo.User;
-import com.qf.pojo.Zhoubao;
-import com.qf.pojo.ZhoubaoTeacher;
+import com.qf.pojo.*;
 import com.qf.service.HeadTeacherService;
 import com.qf.service.HeadTeacherServiceImpl;
+import jdk.nashorn.internal.ir.RuntimeNode;
 import org.apache.shiro.mgt.SecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -81,14 +79,14 @@ public class HeadTeacherController {
 
     @RequestMapping("addStudent")
     public String addUser(){
-        return "studentadd";
+        return "xueshengxinxitianru";
     }
 
     @RequestMapping("studentmanager")
     public String studentmanager( Model model){
         List<Student> studentList = headTeacherService.getUserList();
         model.addAttribute("studentList",studentList);
-        return "studentmanager";
+        return "xueshengxinxi";
     }
     /**
      * 增加用户
@@ -128,5 +126,34 @@ public class HeadTeacherController {
             return "success";
         }
         return "fail";
+    }
+
+    @RequestMapping("chaxunavgscore")
+    public String classjieduan1(String cname , Model model){
+        List<Score> scoreList = headTeacherService.getClazzAvgScore1(cname);
+        List<Score> jieduanList = headTeacherService.getClazzAvgScore2(cname);
+        model.addAttribute("scoreList",scoreList);
+        model.addAttribute("jieduanList",jieduanList);
+        return "echart1";
+    }
+
+
+
+    @RequestMapping("gejieduanscore")
+    public String classjieduan1(String sname,String kname, Model model){
+        List<Score> scoreList = headTeacherService.getStudentScoreByJieduan1(sname,kname);
+        model.addAttribute("scoreList",scoreList);
+        List<Score> kechengList = headTeacherService.getStudentScoreByJieduan2(sname,kname);
+        model.addAttribute("kechengList",kechengList);
+        return "echart2";
+    }
+
+    @RequestMapping("loginavgscore")
+    public String avgscore(){
+        return "avgscore";
+    }
+    @RequestMapping("logingerenscore")
+    public String gerenscore(){
+        return "gerenscore";
     }
 }

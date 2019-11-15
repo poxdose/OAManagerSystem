@@ -39,4 +39,14 @@ public interface HeadTeacherMapper {
 
     //个人请假
     public int AddHoliday(Holiday holiday);
+
+    //成绩查看
+    //单个学生成绩
+    public List<Score> getStudentScore();
+    //本班各阶段平均成绩
+    public List<Score> getClazzAvgScore1(String cname);
+    public List<Score> getClazzAvgScore2(String cname);
+    //某人各阶段成绩
+    public List<Score> getStudentScoreByJieduan1(String sname,String kname);
+    public List<Score> getStudentScoreByJieduan2(String sname,String kname);
 }

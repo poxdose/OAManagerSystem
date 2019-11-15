@@ -2,6 +2,8 @@
 package com.qf.controller;
 
 import com.qf.pojo.Score;
+import com.qf.pojo.Student;
+import com.qf.pojo.ZhoubaoTeacher;
 import com.qf.service.TeacherService;
 import com.qf.service.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,7 @@
 package com.qf.service;
 
 import com.qf.mapper.HeadTeacherMapper;
+import com.qf.pojo.Score;
 import com.qf.pojo.Student;
 import com.qf.pojo.Zhoubao;
 import com.qf.pojo.ZhoubaoTeacher;
@@ -59,6 +60,31 @@ public class HeadTeacherServiceImpl implements HeadTeacherService{
     @Override
     public Student getStudentBySid(int sid) {
         return headTeacherMapper.getStudentBySid(sid);
+    }
+
+    @Override
+    public List<Score> getStudentScore() {
+        return headTeacherMapper.getStudentScore();
+    }
+
+    @Override
+    public List<Score> getClazzAvgScore1(String cname) {
+        return headTeacherMapper.getClazzAvgScore1(cname);
+    }
+
+    @Override
+    public List<Score> getClazzAvgScore2(String cname) {
+        return headTeacherMapper.getClazzAvgScore2(cname);
+    }
+
+    @Override
+    public List<Score> getStudentScoreByJieduan1(String sname, String kname) {
+        return headTeacherMapper.getStudentScoreByJieduan1(sname,kname);
+    }
+
+    @Override
+    public List<Score> getStudentScoreByJieduan2(String sname, String kname) {
+        return headTeacherMapper.getStudentScoreByJieduan2(sname,kname);
     }
 
     public  String getMD5String(String str) {
