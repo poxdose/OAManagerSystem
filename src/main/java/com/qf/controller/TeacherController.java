@@ -107,6 +107,6 @@ public class TeacherController {
         String tname = (String) session.getAttribute("uname");
         List<Student> studentList = teacherService.selectstudent("tname");
         request.setAttribute("studentList", studentList);
-        return "xueshengxinxi";
+        return "Txueshengxinxi";
     }
 }
