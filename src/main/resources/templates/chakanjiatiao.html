@@ -211,7 +211,7 @@
                                             <td th:text="${holiday.startdate}"></td>
                                             <td th:text="${holiday.enddate}"> </td>
                                             <td th:text="${holiday.reason}"> </td>
-                                            <td >
+                                            <td shiro:hasRole="学生">
                                                 <span th:if="${holiday.state < 3 }">
                                                     未通过
                                                 </span>
@@ -219,7 +219,7 @@
                                                     已通过
                                                 </span>
                                             </td>
-                                            <td >
+                                            <td shiro:hasRole="讲师">
                                                 <span th:if="${holiday.state < 1 }">
                                                     未通过
                                                 </span>
